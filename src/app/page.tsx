@@ -16,13 +16,13 @@ export default function Home() {
       <Hero />
       <Stats />
       <About />
-      <Coaches />
-      <Services />
       <Programs />
+      <Services />
+      <Coaches />
       <Transformations />
       <ClientTestimonials />
-      <GalleryPreview />
       <Membership />
+      <GalleryPreview />
       <Contact />
     </div>
   );
