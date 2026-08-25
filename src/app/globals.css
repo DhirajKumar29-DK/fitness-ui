@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-background: #09090b; /* Near Black */
+  --color-surface: #18181b; /* Dark Charcoal */
+  --color-card: #27272a; /* Slightly lighter Dark Gray */
+  
+  --color-primary: #a3e635; /* Vibrant Lime Green */
+  --color-primary-hover: #84cc16;
+  --color-primary-foreground: #000000;
+  
+  --color-text-primary: #f8fafc; /* Off-White */
+  --color-text-secondary: #a1a1aa; /* Neutral Gray */
+
+  --color-border: #3f3f46;
+  
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-text-primary);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  /* Custom Selection Color */
+  ::selection {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+/* Utilities for cards and sections */
+@layer utilities {
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
+  .bg-card {
+    background-color: var(--color-card);
+  }
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+}
+html { scroll-behavior: smooth; }

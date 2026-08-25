@@ -1,0 +1,84 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { homeData } from "@/data/dummy";
+import { User, Trophy, Activity, Star } from "lucide-react";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
+
+const IconMap: Record<string, React.ElementType> = {
+  User,
+  Trophy,
+  Activity,
+  Star
+};
+
+// Custom animated counter component
+function AnimatedNumber({ value }: { value: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  
+  // Extract the first number and the rest of the string (e.g. "500+" -> "500", "+")
+  const match = value.match(/^([\d.]+)(.*)$/);
+  const targetNumber = match ? parseFloat(match[1]) : 0;
+  const suffix = match ? match[2] : value;
+  const isDecimal = value.includes(".");
+
+  // Removed once: true so it triggers every time it enters the viewport
+  const isInView = useInView(ref, { margin: "-50px" });
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, { duration: 2500, bounce: 0 });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(targetNumber);
+    } else {
+      // Reset to 0 when it leaves view, so it counts up again next time!
+      motionValue.set(0);
+    }
+  }, [isInView, motionValue, targetNumber]);
+
+  useEffect(() => {
+    return springValue.on("change", (latest) => {
+      if (ref.current) {
+        ref.current.textContent = isDecimal 
+          ? latest.toFixed(1) + suffix 
+          : Math.floor(latest) + suffix;
+      }
+    });
+  }, [springValue, suffix, isDecimal]);
+
+  return <span ref={ref}>0{suffix}</span>;
+}
+
+export function Stats() {
+  return (
+    <section className="relative bg-black border-y border-white/5 py-14 z-20 overflow-hidden">
+      
+      {/* Premium Parallax Background Image with a Guaranteed Valid URL */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed opacity-[0.15] grayscale contrast-125"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=2000&auto=format&fit=crop')" }}
+      />
+
+      <div className="container relative z-10 mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-4 divide-x-0 md:divide-x divide-white/10">
+          {homeData.stats.map((stat, index) => {
+            const Icon = IconMap[stat.icon] || Activity;
+            return (
+              <div key={index} className="flex items-center justify-center gap-4 px-4">
+                <Icon className="w-10 h-10 text-primary stroke-[1.5]" />
+                <div className="flex flex-col">
+                  <span className="font-heading text-3xl md:text-4xl font-black text-white leading-none mb-1">
+                    <AnimatedNumber value={stat.value} />
+                  </span>
+                  <span className="text-xs font-bold text-zinc-500 tracking-widest uppercase mt-1">
+                    {stat.label}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
