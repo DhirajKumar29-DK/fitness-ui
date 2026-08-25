@@ -20,7 +20,8 @@ export function CTASection() {
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/#assessment"
+            href="/assessment"
+            target="_blank"
             className="group inline-flex items-center justify-center h-14 px-10 bg-primary text-primary-foreground font-bold tracking-wide uppercase transition-all hover:bg-primary-hover"
           >
             {hero.primaryCTA}

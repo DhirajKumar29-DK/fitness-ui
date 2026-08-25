@@ -18,8 +18,7 @@ export const metadata = {
   description: "Elite Fitness and Performance Coaching",
 };
 
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { LayoutWrapper } from "@/components/layout/LayoutWrapper";
 
 export default function RootLayout({
   children,
@@ -29,11 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className={`${inter.variable} ${archivo.variable} antialiased flex flex-col min-h-screen`}>
-        <Navbar />
-        <main className="flex-1 pt-20">
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
       </body>
     </html>
   );

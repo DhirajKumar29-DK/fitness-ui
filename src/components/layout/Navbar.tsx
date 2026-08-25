@@ -73,7 +73,8 @@ export function Navbar() {
         <div className="flex-1 flex justify-end items-center h-full">
           {/* Desktop CTA */}
           <Link
-            href="/#assessment"
+            href="/assessment"
+            target="_blank"
             className="hidden lg:flex group items-center justify-center h-[42px] px-6 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black text-[12px] font-bold tracking-wide uppercase transition-all duration-300 hover:bg-white hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] rounded-md"
           >
             {navbar.cta}
@@ -107,7 +108,8 @@ export function Navbar() {
               </Link>
             ))}
             <Link
-              href="/#assessment"
+              href="/assessment"
+              target="_blank"
               onClick={() => setIsOpen(false)}
               className="mt-6 flex items-center justify-center h-12 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black text-sm font-bold tracking-wide uppercase transition-all rounded-md"
             >

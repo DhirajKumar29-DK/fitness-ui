@@ -95,7 +95,8 @@ export function Hero() {
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/#assessment"
+                  href="/assessment"
+                  target="_blank"
                   className="group inline-flex items-center justify-center h-12 px-8 bg-primary text-black font-bold tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] rounded-[4px]"
                 >
                   {slide.primaryCTA}
