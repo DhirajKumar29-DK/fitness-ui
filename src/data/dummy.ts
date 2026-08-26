@@ -170,7 +170,7 @@ export const homeData = {
         bottomCredentials: "HYROX Athlete • National Men's Physique Athlete",
         details: [
           "CSCS - Certified Strength & Conditioning Specialist",
-          "15+ years coaching elite athletes"
+          "8+ years coaching elite athletes"
         ],
         image: "/coach-dhiraj.png",
         ctaText: "Book Your Assessment Call",
@@ -430,7 +430,7 @@ export const homeData = {
     info: [
       { id: 1, type: "phone", title: "CALL US", details: "+91 92203 93004" },
       { id: 2, type: "email", title: "EMAIL US", details: "info@fabfit.com" },
-      { id: 3, type: "address", title: "VISIT US", details: "Fab Fit Performance,\n62C, 6th Floor, Supermart 1,\nDLF Phase-4, Gurgaon" },
+      { id: 3, type: "address", title: "VISIT US", details: "62C, 6th Floor, Supermart 1,\nDLF Phase-4, Gurgaon" },
       { id: 4, type: "hours", title: "OPENING HOURS", details: "Mon - Sun: 6:00 AM - 11:00 PM" }
     ],
     socials: [
