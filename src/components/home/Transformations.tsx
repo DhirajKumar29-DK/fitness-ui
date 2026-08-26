@@ -50,7 +50,7 @@ export function Transformations() {
   };
 
   return (
-    <section ref={sectionRef} id="transformations" className="bg-[#050505] relative overflow-hidden flex flex-col pt-4 pb-8">
+    <section ref={sectionRef} id="transformations" className="bg-[#050505] relative overflow-hidden flex flex-col py-12 md:py-16">
       
       {/* PART 1: Top Featured Hero */}
       <div className="relative w-full mb-8">
@@ -153,7 +153,7 @@ export function Transformations() {
                   {/* Card Right: Split Image */}
                   <div className="w-full md:w-[65%] h-[250px] md:h-[350px] relative flex">
                     {/* Glowing Center Line */}
-                    <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-primary z-20 shadow-[0_0_15px_rgba(var(--primary),0.8)] transform -translate-x-1/2"></div>
+                    <div className="absolute top-0 bottom-0 left-1/2 w-[2px] bg-primary z-20 shadow-[0_0_15px_rgba(var(--primary-rgb),0.8)] transform -translate-x-1/2"></div>
                     
                     {/* Before */}
                     <div className="w-1/2 h-full relative overflow-hidden bg-zinc-900">
@@ -165,7 +165,7 @@ export function Transformations() {
 
                     {/* After */}
                     <div className="w-1/2 h-full relative overflow-hidden bg-zinc-900">
-                      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30 bg-primary border border-primary text-black text-[9px] font-black px-3 py-1 tracking-widest uppercase rounded shadow-[0_0_10px_rgba(var(--primary),0.5)]">
+                      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-30 bg-primary border border-primary text-black text-[9px] font-black px-3 py-1 tracking-widest uppercase rounded shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]">
                         AFTER
                       </div>
                       <img src={item.imageAfter} alt="After" className="absolute inset-0 w-[200%] max-w-none h-full object-cover object-center -translate-x-1/2" />

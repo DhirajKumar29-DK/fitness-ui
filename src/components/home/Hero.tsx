@@ -97,7 +97,7 @@ export function Hero() {
                 <Link
                   href="/assessment"
                   target="_blank"
-                  className="group inline-flex items-center justify-center h-12 px-8 bg-primary text-black font-bold tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] rounded-[4px]"
+                  className="group inline-flex items-center justify-center h-12 px-8 bg-primary text-black font-bold tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] rounded-[4px]"
                 >
                   {slide.primaryCTA}
                   <ArrowRight className="ml-2 h-4 w-4 stroke-[3] transition-transform group-hover:translate-x-1" />

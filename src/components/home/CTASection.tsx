@@ -6,7 +6,7 @@ export function CTASection() {
   const hero = homeData.heroSlides[0]; // Reusing first slide's CTA text for now
 
   return (
-    <section className="relative py-24 bg-surface overflow-hidden border-t border-white/5">
+    <section className="relative py-10 md:py-12 bg-surface overflow-hidden border-t border-white/5">
       {/* Abstract Background Element */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
       

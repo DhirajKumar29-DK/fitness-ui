@@ -6,8 +6,8 @@
   --color-surface: #18181b; /* Dark Charcoal */
   --color-card: #27272a; /* Slightly lighter Dark Gray */
   
-  --color-primary: #a3e635; /* Vibrant Lime Green */
-  --color-primary-hover: #84cc16;
+  --color-primary: #FFB81C; /* Fab Fit Gold */
+  --color-primary-hover: #A8861E;
   --color-primary-foreground: #000000;
   
   --color-text-primary: #f8fafc; /* Off-White */
@@ -22,6 +22,7 @@
 
 @layer base {
   :root {
+    --primary-rgb: 255, 184, 28;
     --background: var(--color-background);
     --foreground: var(--color-text-primary);
   }
@@ -44,6 +45,21 @@
     background-color: var(--color-primary);
     color: var(--color-primary-foreground);
   }
+
+  /* Global Button Hover & Active Animations */
+  button, a[role="button"], .btn {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  button:hover:not(:disabled), a[role="button"]:hover, .btn:hover {
+    transform: scale(1.03);
+    filter: brightness(1.1);
+  }
+
+  button:active:not(:disabled), a[role="button"]:active, .btn:active {
+    transform: scale(0.97);
+  }
 }
 
 /* Utilities for cards and sections */
@@ -65,4 +81,7 @@
     display: none;
   }
 }
-html { scroll-behavior: smooth; }
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 72px; /* Offset for fixed navbar */
+}

@@ -56,7 +56,7 @@ export function Membership() {
   };
 
   return (
-    <section ref={sectionRef} id="pricing" className="bg-[#050505] relative overflow-hidden flex flex-col pt-10 pb-4">
+    <section ref={sectionRef} id="pricing" className="bg-[#050505] relative overflow-hidden flex flex-col py-12 md:py-16">
       
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-full md:w-1/2 lg:w-1/3 h-full z-0 opacity-40 mix-blend-luminosity pointer-events-none">
@@ -112,14 +112,14 @@ export function Membership() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-10%" }}
                 whileHover={{ scale: 1.015, transition: { duration: 0.25, ease: "easeOut" as const } }}
-                className={`relative w-full rounded-xl flex flex-col md:flex-row overflow-hidden group bg-[#080808] border ${isHighlighted ? 'border-primary/40' : 'border-zinc-800/60'} hover:border-primary/80 hover:shadow-[0_0_40px_rgba(204,255,0,0.2)] transition-all duration-300 z-10 hover:z-30`}
+                className={`relative w-full rounded-xl flex flex-col md:flex-row overflow-hidden group bg-[#080808] border ${isHighlighted ? 'border-primary/40' : 'border-zinc-800/60'} hover:border-primary/80 hover:shadow-[0_0_40px_rgba(var(--primary-rgb),0.2)] transition-all duration-300 z-10 hover:z-30`}
               >
                 {/* Animated Background Glow on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-500 ease-out pointer-events-none"></div>
 
                 {/* Most Popular Ribbon */}
                 {isHighlighted && (
-                  <div className="absolute top-0 left-0 bg-primary text-black font-black text-[9px] tracking-widest uppercase py-2 px-4 shadow-[0_5px_15px_rgba(204,255,0,0.3)] z-20 flex flex-col items-center leading-tight rounded-br-2xl">
+                  <div className="absolute top-0 left-0 bg-primary text-black font-black text-[9px] tracking-widest uppercase py-2 px-4 shadow-[0_5px_15px_rgba(var(--primary-rgb),0.3)] z-20 flex flex-col items-center leading-tight rounded-br-2xl">
                     <span>MOST</span>
                     <span>POPULAR</span>
                     <div className="absolute -bottom-2 right-0 w-0 h-0 border-t-[8px] border-t-primary border-r-[8px] border-r-transparent filter brightness-75"></div>
@@ -131,7 +131,7 @@ export function Membership() {
                   {/* Subtle highlight behind icon */}
                   <div className="absolute -left-10 top-1/2 -translate-y-1/2 w-32 h-32 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   
-                  <div className={`w-12 h-14 relative flex items-center justify-center shrink-0 text-primary opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(204,255,0,0.5)]`}>
+                  <div className={`w-12 h-14 relative flex items-center justify-center shrink-0 text-primary opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_15px_rgba(var(--primary-rgb),0.5)]`}>
                     {/* Hexagon Shape */}
                     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 115" fill="none" stroke="currentColor" strokeWidth="2">
                       <polygon points="50,2 98,30 98,85 50,113 2,85 2,30" />
@@ -156,7 +156,7 @@ export function Membership() {
                         whileHover={{ opacity: 1, x: 5 }}
                         className="flex items-start gap-3 group/feat cursor-default"
                       >
-                        <div className="mt-0.5 transform group-hover/feat:scale-125 group-hover/feat:drop-shadow-[0_0_8px_rgba(204,255,0,0.8)] transition-all duration-200">
+                        <div className="mt-0.5 transform group-hover/feat:scale-125 group-hover/feat:drop-shadow-[0_0_8px_rgba(var(--primary-rgb),0.8)] transition-all duration-200">
                           <CheckIconSmall />
                         </div>
                         <span className="text-zinc-300 text-xs md:text-sm font-medium group-hover/feat:text-white transition-colors duration-200">{feature}</span>
@@ -172,15 +172,19 @@ export function Membership() {
                     <span className="text-primary font-black text-[9px] tracking-widest uppercase">/ MONTH</span>
                   </div>
                   
-                  <button className={`
+                  <a 
+                    href={`https://wa.me/919220393004?text=${encodeURIComponent(`Hi Fab Fit Performance! I want to enquire about the ${plan.duration} plan.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`
                     relative overflow-hidden px-8 py-3.5 font-black text-[10px] tracking-widest uppercase rounded flex items-center justify-center gap-2 transition-all duration-300 w-full md:w-auto
-                    border border-primary text-primary hover:bg-primary hover:text-black hover:shadow-[0_0_20px_rgba(204,255,0,0.5)] group-hover:bg-primary group-hover:text-black group-hover:shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:!scale-105
+                    border border-primary text-primary hover:bg-primary hover:text-black hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.5)] group-hover:bg-primary group-hover:text-black group-hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] hover:!scale-105
                   `}>
                     <span className="relative z-10 flex items-center gap-2">
                       ENQUIRE
                       <span className="text-lg leading-none transform group-hover:translate-x-2 transition-transform duration-300">→</span>
                     </span>
-                  </button>
+                  </a>
                 </div>
                 
               </motion.div>

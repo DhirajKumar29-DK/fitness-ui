@@ -37,7 +37,7 @@ export function About() {
   const { intro } = homeData;
 
   return (
-    <section id="about" className="py-10 bg-white relative overflow-hidden">
+    <section id="about" className="py-12 md:py-16 bg-[#050505] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
@@ -52,19 +52,19 @@ export function About() {
               {intro.badge}
             </motion.div>
             
-            <motion.h2 variants={itemVariants} className="font-heading text-5xl md:text-6xl lg:text-[72px] font-black text-black leading-[0.95] tracking-tight uppercase mb-8">
+            <motion.h2 variants={itemVariants} className="font-heading text-5xl md:text-6xl lg:text-[72px] font-black text-white leading-[0.95] tracking-tight uppercase mb-8">
               {intro.headingLine1} <br />
               <span className="text-primary">{intro.headingLine2}</span>
             </motion.h2>
             
-            <motion.p variants={itemVariants} className="text-zinc-600 text-lg md:text-xl leading-relaxed mb-10 max-w-xl font-medium">
+            <motion.p variants={itemVariants} className="text-zinc-400 text-lg md:text-xl leading-relaxed mb-10 max-w-xl font-medium">
               {intro.description}
             </motion.p>
 
             {/* Checklist */}
             <motion.ul variants={containerVariants} className="space-y-4 mb-12">
               {intro.checklist.map((item, i) => (
-                <motion.li variants={itemVariants} key={i} className="flex items-center gap-4 text-black text-lg font-bold">
+                <motion.li variants={itemVariants} key={i} className="flex items-center gap-4 text-white text-lg font-bold">
                   <div className="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-black">
                     <Check className="w-4 h-4 stroke-[4]" />
                   </div>
@@ -76,7 +76,7 @@ export function About() {
             <motion.div variants={itemVariants}>
               <Link
                 href="/#about"
-                className="group inline-flex items-center justify-center h-14 px-10 bg-black text-white text-sm font-black tracking-wide uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.25)] hover:bg-zinc-900 rounded-[4px]"
+                className="group inline-flex items-center justify-center h-14 px-10 bg-primary text-black text-sm font-black tracking-wide uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(var(--primary-rgb),0.25)] hover:bg-white rounded-[4px]"
               >
                 {intro.cta}
                 <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-2" />

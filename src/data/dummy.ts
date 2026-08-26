@@ -5,7 +5,7 @@ export const globalData = {
       line2: "PERFORMANCE"
     },
     links: [
-      { name: "HOME", href: "/" },
+      { name: "HOME", href: "/#home" },
       { name: "ABOUT", href: "/#about" },
       { name: "PROGRAMS", href: "/#programs" },
       { name: "SERVICES", href: "/#services" },
@@ -149,7 +149,7 @@ export const homeData = {
     items: [
       {
         id: 1,
-        name: "DHIRAJ",
+        name: "HEAD COACH",
         role: "EVIDENCE-BASED FITNESS & NUTRITION COACH",
         catchyText: "TRAIN SMARTER.\nFUEL BETTER.\nPERFORM FOR LIFE.",
         description: "Helping busy professionals improve body composition, strength and performance through evidence-based coaching.",
@@ -254,7 +254,7 @@ export const homeData = {
       {
         id: 1,
         image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=400&auto=format&fit=crop",
-        quote: "Anil's evidence-based approach and personalized coaching transformed my body and mindset. I lost 18 kg of fat and gained strength I never thought was possible. Best decision of my life!",
+        quote: "Fab Fit's evidence-based approach and personalized coaching transformed my body and mindset. I lost 18 kg of fat and gained strength I never thought was possible. Best decision of my life!",
         name: "ROHIT SHARMA",
         role: "IT Professional",
         stats: [
@@ -266,7 +266,7 @@ export const homeData = {
       {
         id: 2,
         image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=400&auto=format&fit=crop",
-        quote: "I was struggling with my weight for years. Anil not only helped me lose 14 kg but also taught me sustainable habits. I feel healthier, stronger and more confident than ever before!",
+        quote: "I was struggling with my weight for years. Fab Fit not only helped me lose 14 kg but also taught me sustainable habits. I feel healthier, stronger and more confident than ever before!",
         name: "PRIYA MEHTA",
         role: "Marketing Manager",
         stats: [
@@ -278,7 +278,7 @@ export const homeData = {
       {
         id: 3,
         image: "https://images.unsplash.com/photo-1507398941214-572c25f4b1dc?q=80&w=400&auto=format&fit=crop",
-        quote: "Anil's stage prep coaching was next level. His attention to detail, nutrition and training helped me win my first competition. Couldn't have done it without him!",
+        quote: "Fab Fit's stage prep coaching was next level. His attention to detail, nutrition and training helped me win my first competition. Couldn't have done it without him!",
         name: "KARAN MALHOTRA",
         role: "Fitness Competitor",
         stats: [
@@ -290,7 +290,7 @@ export const homeData = {
       {
         id: 4,
         image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=400&auto=format&fit=crop",
-        quote: "As a busy working mom, I needed a plan that fits my lifestyle. Anil's coaching gave me energy, helped me lose 10 kg and build strength. Highly recommend his programs!",
+        quote: "As a busy working mom, I needed a plan that fits my lifestyle. Fab Fit's coaching gave me energy, helped me lose 10 kg and build strength. Highly recommend his programs!",
         name: "NEHA VERMA",
         role: "Working Mom",
         stats: [
@@ -302,7 +302,7 @@ export const homeData = {
       {
         id: 5,
         image: "https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=400&auto=format&fit=crop",
-        quote: "Training for HYROX was challenging, but Anil's programming and guidance got me race-ready. Improved my endurance and performance dramatically!",
+        quote: "Training for HYROX was challenging, but Fab Fit's programming and guidance got me race-ready. Improved my endurance and performance dramatically!",
         name: "ARJUN SINGH",
         role: "HYROX Athlete",
         stats: [
@@ -414,9 +414,9 @@ export const homeData = {
     headingLine3: "TOGETHER.",
     subHeader: "Have questions or ready to begin? Our team is here to help you achieve your best.",
     info: [
-      { id: 1, type: "phone", title: "CALL US", details: "+91 12345 67890" },
-      { id: 2, type: "email", title: "EMAIL US", details: "info@anils.fit" },
-      { id: 3, type: "address", title: "VISIT US", details: "Anil's Performance,\n123 Fitness Street,\nBhubaneswar, Odisha 751001" },
+      { id: 1, type: "phone", title: "CALL US", details: "+91 92203 93004" },
+      { id: 2, type: "email", title: "EMAIL US", details: "info@fabfit.com" },
+      { id: 3, type: "address", title: "VISIT US", details: "Fab Fit Performance,\n123 Fitness Street,\nBhubaneswar, Odisha 751001" },
       { id: 4, type: "hours", title: "OPENING HOURS", details: "Mon - Sat: 5:00 AM - 10:00 PM\nSunday: 7:00 AM - 1:00 PM" }
     ],
     socials: [
@@ -428,7 +428,7 @@ export const homeData = {
     formHeader: "SEND US A",
     formHeaderHighlight: "MESSAGE",
     mapAddress: {
-      title: "Anil's Performance",
+      title: "Fab Fit Performance",
       addressLine1: "123 Fitness Street,",
       addressLine2: "Bhubaneswar, Odisha 751001"
     }

@@ -66,7 +66,7 @@ export function ClientTestimonials() {
   };
 
   return (
-    <section ref={sectionRef} id="client-testimonials" className="bg-[#050505] relative overflow-hidden flex flex-col pt-20 pb-12">
+    <section ref={sectionRef} id="client-testimonials" className="bg-[#050505] relative overflow-hidden flex flex-col py-12 md:py-16">
       
       {/* Background Graphic */}
       <div className="absolute top-0 right-0 w-full md:w-1/2 lg:w-1/3 h-full z-0 opacity-20 pointer-events-none">
@@ -120,9 +120,9 @@ export function ClientTestimonials() {
             >
               
               {/* Left: Client Image */}
-              <div className="w-full lg:w-[220px] h-[220px] lg:h-auto shrink-0 relative">
-                <img src={review.image} alt={review.name} className="w-full h-full object-cover object-center grayscale-[20%]" />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0a0a] opacity-0 lg:opacity-100"></div>
+              <div className="w-full lg:w-[220px] h-[220px] lg:h-auto shrink-0 relative overflow-hidden">
+                <img src={review.image} alt={review.name} className="w-full h-full object-cover object-center grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0a0a0a] opacity-0 lg:opacity-100 pointer-events-none"></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent lg:opacity-0 opacity-100"></div>
               </div>
 

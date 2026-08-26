@@ -50,7 +50,7 @@ export function Services() {
   }, [emblaApi, onInit, onSelect]);
 
   return (
-    <section id="services" className="py-12 bg-[#030303] relative overflow-hidden">
+    <section id="services" className="py-12 md:py-16 bg-[#030303] relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-12 relative z-10 max-w-[1440px]">
         
         {/* Header Section */}
@@ -76,47 +76,51 @@ export function Services() {
         <div className="relative group mt-6">
           <div className="overflow-hidden px-2 md:px-4 py-2" ref={emblaRef}>
             <div className="flex gap-4">
-              {services.items.map((item) => {
+              {services.items.map((item, index) => {
                 const Icon = IconMap[item.icon] || Activity;
                 return (
                   <div 
                     key={item.id} 
                     className="flex-[0_0_100%] sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] min-w-0"
                   >
-                    <div className="h-[460px] rounded-lg overflow-hidden bg-black group/card cursor-pointer flex flex-col relative shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <motion.div 
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.1 }}
+                      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                      className="h-[460px] rounded-xl overflow-hidden bg-[#020202] group/card cursor-pointer flex flex-col relative shadow-2xl border border-white/5 transition-all duration-700 hover:-translate-y-3 hover:border-primary/30 hover:shadow-[0_20px_50px_rgba(var(--primary-rgb),0.1)]"
+                    >
                       
                       {/* Background Image filling the card */}
                       <img 
                         src={item.image} 
                         alt={item.title}
-                        className="absolute inset-0 w-full h-full object-cover opacity-60 transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-80 grayscale group-hover/card:grayscale-0"
+                        className="absolute inset-0 w-full h-full object-cover opacity-40 transition-all duration-700 group-hover/card:scale-110 group-hover/card:opacity-100 grayscale group-hover/card:grayscale-0"
                       />
                       
                       {/* Premium Deep Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-90 transition-opacity duration-500 group-hover/card:opacity-100" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-[#020202]/80 to-transparent opacity-100 group-hover/card:opacity-70 transition-opacity duration-700 pointer-events-none" />
+                      
+                      {/* Inner Glow effect on hover */}
+                      <div className="absolute inset-0 bg-primary/0 transition-colors duration-700 group-hover/card:bg-primary/5 mix-blend-overlay pointer-events-none" />
 
                       {/* Content overlay */}
-                      <div className="relative h-full flex flex-col items-center justify-end px-5 pb-8 z-10">
+                      <div className="relative h-full flex flex-col items-center justify-end px-6 pb-10 z-10">
                         
                         {/* Premium Glowing Icon */}
-                        <div className="w-12 h-12 rounded-full border border-primary/50 flex items-center justify-center text-primary mb-5 bg-black/50 backdrop-blur-md transition-all duration-500 group-hover/card:border-primary group-hover/card:shadow-[0_0_20px_rgba(163,230,53,0.3)] group-hover/card:scale-110">
-                          <Icon className="w-5 h-5" />
+                        <div className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white mb-6 bg-white/5 backdrop-blur-xl transition-all duration-700 group-hover/card:border-primary group-hover/card:text-black group-hover/card:bg-primary group-hover/card:shadow-[0_0_30px_rgba(var(--primary-rgb),0.5)] group-hover/card:-translate-y-2">
+                          <Icon className="w-6 h-6" />
                         </div>
 
-                        <h3 className="text-white text-[17px] font-black text-center uppercase tracking-widest mb-3 drop-shadow-md transition-colors duration-300 group-hover/card:text-white">
+                        <h3 className="text-white text-lg font-black text-center uppercase tracking-[0.15em] mb-4 drop-shadow-md transition-all duration-500 group-hover/card:text-primary transform group-hover/card:-translate-y-1">
                           {item.title}
                         </h3>
                         
-                        <p className="text-zinc-300 text-[13px] text-center mb-6 leading-[1.6] font-medium max-w-[90%] mx-auto opacity-80 group-hover/card:opacity-100 transition-opacity duration-300">
+                        <p className="text-zinc-400 text-sm text-center leading-relaxed font-medium max-w-[95%] mx-auto opacity-70 group-hover/card:opacity-100 transition-all duration-500 transform group-hover/card:-translate-y-1">
                           {item.description}
                         </p>
-
-                        <span className="text-primary text-[11px] font-black tracking-[0.2em] uppercase flex items-center gap-2 group-hover/card:gap-3 transition-all duration-300">
-                          EXPLORE <ArrowRight className="w-3.5 h-3.5" />
-                        </span>
-
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 );
               })}
@@ -156,8 +160,9 @@ export function Services() {
         {/* Premium Outline CTA */}
         <div className="flex justify-center">
           <Link
-            href="/#contact"
-            className="group inline-flex items-center justify-center h-12 px-8 bg-transparent border border-white/20 text-white text-[11px] font-black tracking-widest uppercase transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black hover:shadow-[0_0_30px_rgba(163,230,53,0.3)] rounded-[4px]"
+            href="/assessment"
+            target="_blank"
+            className="group inline-flex items-center justify-center h-12 px-8 bg-transparent border border-white/20 text-white text-[11px] font-black tracking-widest uppercase transition-all duration-300 hover:bg-primary hover:border-primary hover:text-black hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.3)] rounded-[4px]"
           >
             {services.cta} <ArrowRight className="ml-3 h-3 w-3 transition-transform group-hover:translate-x-2" />
           </Link>

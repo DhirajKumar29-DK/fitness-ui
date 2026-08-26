@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView, Variants } from "framer-motion";
 import { homeData } from "@/data/dummy";
 
@@ -26,6 +26,22 @@ export function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-10%" });
 
+  const [name, setName] = useState("");
+  const [goal, setGoal] = useState("");
+
+  const handleWhatsAppConnect = () => {
+    if (!name.trim()) {
+      alert("Please enter your name to connect.");
+      return;
+    }
+    if (!goal) {
+      alert("Please select your goal.");
+      return;
+    }
+    const message = `Hi Fab Fit Performance! I'm ${name.trim()} and my goal is: ${goal}. I'd like to book my assessment.`;
+    window.open(`https://wa.me/919220393004?text=${encodeURIComponent(message)}`, "_blank");
+  };
+
   const fadeUp: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
@@ -48,7 +64,7 @@ export function Contact() {
   };
 
   return (
-    <section ref={sectionRef} id="contact" className="bg-[#020202] relative overflow-hidden py-24 border-t border-zinc-900">
+    <section ref={sectionRef} id="contact" className="bg-[#020202] relative overflow-hidden py-12 md:py-16 border-t border-zinc-900">
       
       {/* Left Column Background Image */}
       <div className="absolute top-0 left-0 w-full lg:w-1/2 h-full opacity-30 pointer-events-none z-0">
@@ -98,23 +114,55 @@ export function Contact() {
             </motion.div>
 
             {/* Info List */}
-            <div className="flex flex-col gap-8 mb-12">
-              {contact.info.map((item) => (
-                <motion.div key={item.id} variants={itemVariants} className="flex items-start gap-5 group">
-                  <div className="w-12 h-12 rounded-full border border-zinc-800 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-colors duration-300 shrink-0">
-                    {item.type === 'phone' && <PhoneIcon />}
-                    {item.type === 'email' && <EmailIcon />}
-                    {item.type === 'address' && <MapPinIcon />}
-                    {item.type === 'hours' && <ClockIcon />}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 mb-12">
+              {contact.info.map((item) => {
+                const isEmail = item.type === 'email';
+                const isPhone = item.type === 'phone';
+                const isClickable = isEmail || isPhone;
+                
+                // For phone use tel:, for email use Gmail compose URL to bypass mailto: issues
+                const href = isPhone 
+                  ? `tel:${item.details.replace(/[^\d+]/g, '')}` 
+                  : isEmail 
+                  ? `https://mail.google.com/mail/?view=cm&fs=1&to=${item.details}` 
+                  : undefined;
+                
+                const DetailsText = href ? (
+                  <a 
+                    href={href}
+                    target={isEmail ? "_blank" : undefined}
+                    rel={isEmail ? "noopener noreferrer" : undefined}
+                    className="text-zinc-400 text-sm font-medium leading-relaxed whitespace-pre-line transition-colors hover:text-primary hover:underline inline-block group-hover:text-zinc-300 w-max"
+                  >
+                    {item.details}
+                  </a>
+                ) : (
+                  <span className="text-zinc-400 text-sm font-medium leading-relaxed whitespace-pre-line transition-colors group-hover:text-zinc-300">
+                    {item.details}
+                  </span>
+                );
+
+                const InnerContent = (
+                  <div className="flex flex-col gap-4 group h-full">
+                    <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/5 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-black transition-all duration-500 shadow-lg shrink-0 group-hover:scale-110 group-hover:-rotate-3">
+                      {item.type === 'phone' && <PhoneIcon />}
+                      {item.type === 'email' && <EmailIcon />}
+                      {item.type === 'address' && <MapPinIcon />}
+                      {item.type === 'hours' && <ClockIcon />}
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-white font-black text-xs tracking-widest uppercase mb-1.5">{item.title}</span>
+                      {DetailsText}
+                    </div>
                   </div>
-                  <div className="flex flex-col pt-1">
-                    <span className="text-white font-black text-xs tracking-widest uppercase mb-1">{item.title}</span>
-                    <span className="text-zinc-400 text-sm font-medium leading-relaxed whitespace-pre-line group-hover:text-zinc-300 transition-colors">
-                      {item.details}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
+                );
+
+                return (
+                  <motion.div key={item.id} variants={itemVariants} className="h-full">
+                    {InnerContent}
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Socials */}
@@ -137,109 +185,128 @@ export function Contact() {
             animate={isInView ? "visible" : "hidden"}
             className="flex flex-col gap-6"
           >
-            {/* Form Box */}
-            <div className="bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-6 md:p-10">
-              <h3 className="font-heading text-2xl md:text-3xl font-black uppercase tracking-tighter mb-8">
-                <span className="text-white">{contact.formHeader} </span>
-                <span className="text-primary">{contact.formHeaderHighlight}</span>
-              </h3>
+            {/* Contact Form */}
+            <div className="bg-[#050505] border border-white/5 rounded-2xl p-6 md:p-8 shadow-[0_0_40px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+              <div className="mb-6">
+                <h3 className="font-heading text-3xl md:text-4xl font-black uppercase tracking-tighter flex flex-col sm:flex-row sm:gap-2 mb-2 leading-none">
+                  <span className="text-white drop-shadow-md">SEND US A</span>
+                  <span className="text-primary drop-shadow-md">MESSAGE</span>
+                </h3>
+              </div>
               
-              <form className="flex flex-col gap-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Name Input */}
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <form className="flex flex-col gap-4" onSubmit={(e) => { 
+                e.preventDefault(); 
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get('name');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+                const text = `Hi Fab Fit! I'm ${name}. Subject: ${subject}. Message: ${message}`;
+                window.open(`https://wa.me/919220393004?text=${encodeURIComponent(text)}`, '_blank');
+              }}>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Full Name */}
+                  <div className="relative group/input">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within/input:text-primary transition-colors">
                       <UserIcon />
                     </div>
                     <input 
                       type="text" 
+                      name="name"
                       placeholder="Full Name" 
-                      className="w-full bg-transparent border border-zinc-800 text-white text-sm rounded-lg pl-12 pr-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                      className="w-full bg-[#0a0a0a] border border-zinc-800/80 text-white text-sm rounded-xl pl-12 pr-5 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all duration-300 placeholder-zinc-500"
+                      required
                     />
                   </div>
                   
-                  {/* Email Input */}
-                  <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  {/* Email Address */}
+                  <div className="relative group/input">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within/input:text-primary transition-colors">
                       <MailIcon />
                     </div>
                     <input 
                       type="email" 
+                      name="email"
                       placeholder="Email Address" 
-                      className="w-full bg-transparent border border-zinc-800 text-white text-sm rounded-lg pl-12 pr-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                      className="w-full bg-[#0a0a0a] border border-zinc-800/80 text-white text-sm rounded-xl pl-12 pr-5 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all duration-300 placeholder-zinc-500"
+                      required
                     />
                   </div>
                 </div>
 
-                {/* Phone Input */}
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                {/* Phone Number */}
+                <div className="relative group/input">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within/input:text-primary transition-colors">
                     <PhoneInputIcon />
                   </div>
                   <input 
                     type="tel" 
+                    name="phone"
                     placeholder="Phone Number" 
-                    className="w-full bg-transparent border border-zinc-800 text-white text-sm rounded-lg pl-12 pr-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                    className="w-full bg-[#0a0a0a] border border-zinc-800/80 text-white text-sm rounded-xl pl-12 pr-5 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all duration-300 placeholder-zinc-500"
+                    required
                   />
                 </div>
 
-                {/* Subject Input */}
-                <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                {/* Subject */}
+                <div className="relative group/input">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within/input:text-primary transition-colors">
                     <SubjectIcon />
                   </div>
                   <input 
                     type="text" 
+                    name="subject"
                     placeholder="Subject" 
-                    className="w-full bg-transparent border border-zinc-800 text-white text-sm rounded-lg pl-12 pr-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                    className="w-full bg-[#0a0a0a] border border-zinc-800/80 text-white text-sm rounded-xl pl-12 pr-5 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all duration-300 placeholder-zinc-500"
+                    required
                   />
                 </div>
 
-                {/* Message Textarea */}
-                <div className="relative">
-                  <div className="absolute top-4 left-0 pl-4 flex items-start pointer-events-none">
+                {/* Your Message */}
+                <div className="relative group/input">
+                  <div className="absolute top-4 left-4 flex pointer-events-none text-zinc-500 group-focus-within/input:text-primary transition-colors">
                     <EditIcon />
                   </div>
                   <textarea 
+                    name="message"
                     placeholder="Your Message" 
                     rows={4}
-                    className="w-full bg-transparent border border-zinc-800 text-white text-sm rounded-lg pl-12 pr-4 py-3 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
+                    className="w-full bg-[#0a0a0a] border border-zinc-800/80 text-white text-sm rounded-xl pl-12 pr-5 py-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/50 transition-all duration-300 placeholder-zinc-500 resize-none"
+                    required
                   ></textarea>
                 </div>
 
+                {/* Submit Button */}
                 <button 
-                  type="button" 
-                  className="w-full bg-primary text-black font-black text-[11px] tracking-widest uppercase rounded-lg py-4 mt-2 flex items-center justify-center gap-2 hover:bg-white transition-colors duration-300"
+                  type="submit"
+                  className="w-full bg-primary text-black font-black text-sm tracking-widest uppercase rounded-xl py-4 mt-2 flex items-center justify-center gap-2 hover:bg-white transition-all duration-500 hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.5)] group/btn"
                 >
                   SEND MESSAGE 
-                  <span className="text-lg leading-none">→</span>
+                  <span className="text-lg leading-none transform group-hover/btn:translate-x-1 transition-transform duration-300">→</span>
                 </button>
               </form>
             </div>
 
-            {/* Map Box */}
-            <div className="relative w-full h-[250px] bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden group">
-              <img 
-                src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop" 
-                alt="Map View" 
-                className="w-full h-full object-cover opacity-30 grayscale group-hover:scale-105 transition-transform duration-700"
-              />
+            {/* Small Map Box */}
+            <div className="relative w-full h-[400px] bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden group shadow-2xl">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119614.97549887752!2d85.7335198!3d20.301031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1714123456789!5m2!1sen!2sin"
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }}
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+              ></iframe>
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-1000 pointer-events-none mix-blend-overlay"></div>
               
-              {/* Map Pin */}
-              <div className="absolute top-1/2 left-2/3 transform -translate-x-1/2 -translate-y-1/2 text-primary animate-bounce">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="#000"/></svg>
-              </div>
-
-              {/* Address Card Overlay */}
-              <div className="absolute bottom-6 left-6 bg-[#0a0a0a]/90 backdrop-blur-sm border border-zinc-800 rounded-xl p-5 shadow-2xl">
-                <h4 className="text-primary font-bold text-sm tracking-wide mb-2">{contact.mapAddress.title}</h4>
-                <p className="text-zinc-300 text-xs font-medium leading-relaxed">
-                  {contact.mapAddress.addressLine1} <br />
-                  {contact.mapAddress.addressLine2}
-                </p>
+              {/* Floating Address Mini-Card */}
+              <div className="absolute top-4 left-4 bg-black/80 backdrop-blur-md border border-white/10 rounded-xl px-4 py-2 flex items-center gap-3">
+                <MapPinIcon />
+                <span className="text-white text-xs font-bold tracking-widest uppercase">{contact.mapAddress.title}</span>
               </div>
             </div>
-
           </motion.div>
           
         </div>

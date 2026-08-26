@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { homeData } from "@/data/dummy";
 import { User, Trophy, Activity, Star } from "lucide-react";
-import { useInView, useMotionValue, useSpring } from "framer-motion";
+import { useInView, useMotionValue, useSpring, motion } from "framer-motion";
 
 const IconMap: Record<string, React.ElementType> = {
   User,
@@ -51,7 +51,7 @@ function AnimatedNumber({ value }: { value: string }) {
 
 export function Stats() {
   return (
-    <section className="relative bg-black border-y border-white/5 py-14 z-20 overflow-hidden">
+    <section className="relative bg-black border-y border-white/5 py-10 md:py-12 z-20 overflow-hidden">
       
       {/* Premium Parallax Background Image with a Guaranteed Valid URL */}
       <div 
@@ -64,7 +64,14 @@ export function Stats() {
           {homeData.stats.map((stat, index) => {
             const Icon = IconMap[stat.icon] || Activity;
             return (
-              <div key={index} className="flex items-center justify-center gap-4 px-4">
+              <motion.div 
+                key={index} 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+                className="flex items-center justify-center gap-4 px-4"
+              >
                 <Icon className="w-10 h-10 text-primary stroke-[1.5]" />
                 <div className="flex flex-col">
                   <span className="font-heading text-3xl md:text-4xl font-black text-white leading-none mb-1">
@@ -74,7 +81,7 @@ export function Stats() {
                     {stat.label}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

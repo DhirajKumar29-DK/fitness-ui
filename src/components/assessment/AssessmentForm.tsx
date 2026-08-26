@@ -121,8 +121,8 @@ export function AssessmentForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateStep3()) {
-      alert("Application Submitted Successfully!");
-      // Here you would hook into email/whatsapp notification logic
+      const message = `Hi Fab Fit Performance! I'm ${firstName.trim()} ${lastName.trim()} and I have just completed the assessment form. Please reach out to me!`;
+      window.open(`https://wa.me/919220393004?text=${encodeURIComponent(message)}`, "_blank");
     } else {
       const formContainer = document.getElementById("form-scroll-container");
       if (formContainer) formContainer.scrollTo({ top: 0, behavior: 'smooth' });
@@ -399,7 +399,7 @@ export function AssessmentForm() {
                         <div 
                           key={item.id}
                           onClick={() => { setActivityLevel(item.id); clearError('activityLevel'); }}
-                          className={`relative p-4 rounded-xl border cursor-pointer transition-all duration-300 ${isActive ? 'bg-primary/5 border-primary shadow-[0_0_15px_rgba(163,230,53,0.15)]' : errors.activityLevel ? 'bg-red-500/5 border-red-500/50 hover:border-red-500' : 'bg-[#1a1a1a] border-white/5 hover:border-white/20'}`}
+                          className={`relative p-4 rounded-xl border cursor-pointer transition-all duration-300 ${isActive ? 'bg-primary/5 border-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.15)]' : errors.activityLevel ? 'bg-red-500/5 border-red-500/50 hover:border-red-500' : 'bg-[#1a1a1a] border-white/5 hover:border-white/20'}`}
                         >
                           {isActive && (
                             <div className="absolute top-0 right-0 bg-primary text-black w-6 h-6 flex items-center justify-center rounded-bl-lg rounded-tr-xl">
@@ -439,7 +439,7 @@ export function AssessmentForm() {
                     <span className="text-zinc-500 text-xs">Step 1 of 3</span>
                   </div>
 
-                  <button type="button" onClick={handleNext} className="group flex items-center justify-center h-12 px-8 bg-primary text-black text-sm font-black tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] rounded-md w-full sm:w-auto">
+                  <button type="button" onClick={handleNext} className="group flex items-center justify-center h-12 px-8 bg-primary text-black text-sm font-black tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] rounded-md w-full sm:w-auto">
                     Next Step
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
@@ -486,7 +486,7 @@ export function AssessmentForm() {
                         <div 
                           key={item.id}
                           onClick={() => { setPrimaryGoal(item.id); clearError('primaryGoal'); }}
-                          className={`min-w-[140px] flex-1 snap-start relative p-5 rounded-xl border cursor-pointer transition-all duration-300 ${isActive ? 'bg-primary/5 border-primary shadow-[0_0_15px_rgba(163,230,53,0.15)]' : errors.primaryGoal ? 'bg-red-500/5 border-red-500/50 hover:border-red-500' : 'bg-[#1a1a1a] border-white/5 hover:border-white/20'}`}
+                          className={`min-w-[140px] flex-1 snap-start relative p-5 rounded-xl border cursor-pointer transition-all duration-300 ${isActive ? 'bg-primary/5 border-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.15)]' : errors.primaryGoal ? 'bg-red-500/5 border-red-500/50 hover:border-red-500' : 'bg-[#1a1a1a] border-white/5 hover:border-white/20'}`}
                         >
                           {isActive && (
                             <div className="absolute top-0 right-0 bg-primary text-black w-6 h-6 flex items-center justify-center rounded-bl-lg rounded-tr-xl">
@@ -574,7 +574,7 @@ export function AssessmentForm() {
                               <div 
                                 key={item.id}
                                 onClick={() => { setEquipment(item.id); clearError('equipment'); }}
-                                className={`flex flex-col items-center justify-center p-2 rounded-lg border cursor-pointer transition-all duration-300 text-center gap-1 ${isActive ? 'bg-primary/5 border-primary text-primary shadow-[0_0_10px_rgba(163,230,53,0.1)]' : errors.equipment ? 'bg-red-500/5 border-red-500/50 text-zinc-400' : 'bg-[#1a1a1a] border-white/10 hover:border-white/20 text-zinc-400'}`}
+                                className={`flex flex-col items-center justify-center p-2 rounded-lg border cursor-pointer transition-all duration-300 text-center gap-1 ${isActive ? 'bg-primary/5 border-primary text-primary shadow-[0_0_10px_rgba(var(--primary-rgb),0.1)]' : errors.equipment ? 'bg-red-500/5 border-red-500/50 text-zinc-400' : 'bg-[#1a1a1a] border-white/10 hover:border-white/20 text-zinc-400'}`}
                               >
                                 <Icon className="w-5 h-5 mb-1" />
                                 <span className="text-xs font-bold leading-tight">{item.id}</span>
@@ -713,7 +713,7 @@ export function AssessmentForm() {
                             <div 
                               key={item.id}
                               onClick={() => { setDiet(item.id); clearError('diet'); }}
-                              className={`flex flex-col items-center justify-center p-3 rounded-lg border cursor-pointer transition-all duration-300 text-center gap-1 ${isActive ? 'bg-primary/5 border-primary text-primary shadow-[0_0_10px_rgba(163,230,53,0.1)]' : errors.diet ? 'bg-red-500/5 border-red-500/50 text-zinc-400' : 'bg-[#1a1a1a] border-white/10 hover:border-white/20 text-zinc-400'}`}
+                              className={`flex flex-col items-center justify-center p-3 rounded-lg border cursor-pointer transition-all duration-300 text-center gap-1 ${isActive ? 'bg-primary/5 border-primary text-primary shadow-[0_0_10px_rgba(var(--primary-rgb),0.1)]' : errors.diet ? 'bg-red-500/5 border-red-500/50 text-zinc-400' : 'bg-[#1a1a1a] border-white/10 hover:border-white/20 text-zinc-400'}`}
                             >
                               <div className="text-lg">{item.icon}</div>
                               <div className="font-bold text-xs">{item.id}</div>
@@ -802,7 +802,7 @@ export function AssessmentForm() {
                     <span className="text-zinc-500 text-xs">Step 2 of 3</span>
                   </div>
 
-                  <button type="button" onClick={handleNext} className="group flex items-center justify-center h-12 px-8 bg-primary text-black text-sm font-black tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] rounded-md w-full sm:w-auto">
+                  <button type="button" onClick={handleNext} className="group flex items-center justify-center h-12 px-8 bg-primary text-black text-sm font-black tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] rounded-md w-full sm:w-auto">
                     Next Step
                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </button>
@@ -989,7 +989,7 @@ export function AssessmentForm() {
                           <div 
                             key={num}
                             onClick={() => { setCommitmentLevel(num); clearError('commitmentLevel'); }}
-                            className={`flex-1 min-w-[35px] sm:min-w-[40px] h-12 sm:h-14 flex items-center justify-center rounded-lg border-2 text-base sm:text-lg font-black cursor-pointer transition-all ${commitmentLevel === num ? 'bg-primary border-primary text-black shadow-[0_0_20px_rgba(163,230,53,0.4)] scale-110 z-10' : errors.commitmentLevel ? 'border-red-500/50 text-red-500' : 'bg-[#1a1a1a] border-white/10 text-zinc-500 hover:border-white/30 hover:text-white'}`}
+                            className={`flex-1 min-w-[35px] sm:min-w-[40px] h-12 sm:h-14 flex items-center justify-center rounded-lg border-2 text-base sm:text-lg font-black cursor-pointer transition-all ${commitmentLevel === num ? 'bg-primary border-primary text-black shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] scale-110 z-10' : errors.commitmentLevel ? 'border-red-500/50 text-red-500' : 'bg-[#1a1a1a] border-white/10 text-zinc-500 hover:border-white/30 hover:text-white'}`}
                           >
                             {num}
                           </div>
@@ -1066,12 +1066,12 @@ export function AssessmentForm() {
                   
                   <div className="flex-1 max-w-sm w-full flex flex-col items-center gap-2 lg:gap-3">
                     <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-full rounded-full transition-all duration-500 shadow-[0_0_15px_rgba(163,230,53,0.6)]" />
+                      <div className="h-full bg-primary w-full rounded-full transition-all duration-500 shadow-[0_0_15px_rgba(var(--primary-rgb),0.6)]" />
                     </div>
                     <span className="text-zinc-400 text-xs lg:text-sm font-medium">Final Step - Ready to Submit</span>
                   </div>
 
-                  <button type="submit" className="group flex items-center justify-center h-12 lg:h-14 px-8 lg:px-10 bg-primary text-black text-sm lg:text-base font-black tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(163,230,53,0.6)] rounded-lg w-full sm:w-auto">
+                  <button type="submit" className="group flex items-center justify-center h-12 lg:h-14 px-8 lg:px-10 bg-primary text-black text-sm lg:text-base font-black tracking-wide uppercase transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(var(--primary-rgb),0.6)] rounded-lg w-full sm:w-auto">
                     Submit Application
                     <Send className="ml-2 lg:ml-3 h-4 w-4 lg:h-5 lg:w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </button>

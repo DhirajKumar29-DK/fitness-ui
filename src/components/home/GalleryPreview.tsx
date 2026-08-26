@@ -40,7 +40,7 @@ export function GalleryPreview() {
   };
 
   return (
-    <section ref={sectionRef} id="gallery" className="bg-[#050505] relative overflow-hidden py-24">
+    <section ref={sectionRef} id="gallery" className="bg-[#050505] relative overflow-hidden py-12 md:py-16">
       <div className="container mx-auto px-4 md:px-8 relative z-10 max-w-[1400px]">
         
         {/* Header Area with Top Right Button */}

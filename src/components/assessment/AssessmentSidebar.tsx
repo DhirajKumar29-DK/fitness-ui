@@ -8,15 +8,7 @@ export function AssessmentSidebar() {
       {/* Top Logo */}
       <div className="p-6 pb-2 relative z-10">
         <Link href="/" className="flex items-center gap-3 group w-fit">
-          <Mountain className="h-6 w-6 text-primary stroke-[1.5]" />
-          <div className="flex flex-col">
-            <span className="font-heading font-black text-lg xl:text-xl tracking-tighter text-white leading-none uppercase">
-              Anil&apos;s
-            </span>
-            <span className="text-[8px] xl:text-[9px] font-bold tracking-widest text-primary leading-tight mt-0.5 uppercase">
-              Performance
-            </span>
-          </div>
+          <img src="/logo.png" alt="Fab Fit Performance Logo" className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         </Link>
       </div>
 

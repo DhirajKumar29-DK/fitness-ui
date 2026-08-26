@@ -98,7 +98,7 @@ export default function GalleryPage() {
               {/* Photo Card */}
               <div 
                 onClick={() => setView('photos')}
-                className="w-full md:w-1/2 bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-10 flex flex-col items-center text-center cursor-pointer group hover:border-primary transition-all duration-500 hover:shadow-[0_0_40px_rgba(204,255,0,0.1)] hover:-translate-y-2 active:scale-[0.98]"
+                className="w-full md:w-1/2 bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-10 flex flex-col items-center text-center cursor-pointer group hover:border-primary transition-all duration-500 hover:shadow-[0_0_40px_rgba(var(--primary-rgb),0.1)] hover:-translate-y-2 active:scale-[0.98]"
               >
                 <div className="mb-6 transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
                   <PhotoIcon />
@@ -116,7 +116,7 @@ export default function GalleryPage() {
               {/* Video Card */}
               <div 
                 onClick={() => setView('videos')}
-                className="w-full md:w-1/2 bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-10 flex flex-col items-center text-center cursor-pointer group hover:border-primary transition-all duration-500 hover:shadow-[0_0_40px_rgba(204,255,0,0.1)] hover:-translate-y-2 active:scale-[0.98]"
+                className="w-full md:w-1/2 bg-[#0a0a0a] border border-zinc-800 rounded-2xl p-10 flex flex-col items-center text-center cursor-pointer group hover:border-primary transition-all duration-500 hover:shadow-[0_0_40px_rgba(var(--primary-rgb),0.1)] hover:-translate-y-2 active:scale-[0.98]"
               >
                 <div className="mb-6 transform group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-500">
                   <VideoIcon />

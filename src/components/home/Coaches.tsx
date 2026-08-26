@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { homeData } from "@/data/dummy";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import Link from "next/link";
 
 export function Coaches() {
   const { coaches } = homeData;
@@ -54,7 +55,7 @@ export function Coaches() {
   };
 
   return (
-    <section ref={sectionRef} id="coaches" className="flex items-center py-8 bg-[#070709] relative overflow-hidden">
+    <section ref={sectionRef} id="coaches" className="flex items-center py-12 md:py-16 bg-[#070709] relative overflow-hidden">
       {/* Background Glow */}
       <motion.div
         style={{ scale: scaleGlow }}
@@ -134,13 +135,14 @@ export function Coaches() {
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
             >
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center bg-primary text-black font-black text-base md:text-lg px-8 py-4 md:px-10 md:py-5 rounded-sm uppercase tracking-widest transition-all duration-500 shadow-[0_0_20px_rgba(255,107,0,0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] relative overflow-hidden group"
+              <Link
+                href="/assessment"
+                target="_blank"
+                className="inline-flex items-center justify-center bg-primary text-black font-black text-base md:text-lg px-8 py-4 md:px-10 md:py-5 rounded-sm uppercase tracking-widest transition-all duration-500 shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] relative overflow-hidden group"
               >
                 <span className="relative z-10 transition-colors duration-500 group-hover:text-black">{expert.ctaText}</span>
                 <div className="absolute inset-0 bg-white translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1] z-0" />
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -179,7 +181,7 @@ export function Coaches() {
               variants={fadeUpVariants}
               initial="hidden"
               animate={isInView ? "visible" : "hidden"}
-              className="relative z-30 mt-6 lg:mt-8 text-center bg-[#070709]/90 backdrop-blur-xl px-10 py-5 rounded-full border border-primary/30 shadow-[0_15px_40px_rgba(255,107,0,0.2)]"
+              className="relative z-30 mt-6 lg:mt-8 text-center bg-[#070709]/90 backdrop-blur-xl px-10 py-5 rounded-full border border-primary/30 shadow-[0_15px_40px_rgba(var(--primary-rgb),0.2)]"
             >
               <p className="text-white font-black text-sm md:text-base lg:text-lg tracking-widest">
                 {expert.bottomCredentials}

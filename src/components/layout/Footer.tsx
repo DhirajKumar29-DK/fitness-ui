@@ -9,10 +9,7 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Activity className="h-6 w-6 text-primary" />
-              <span className="font-heading font-bold text-xl tracking-tight text-text-primary">
-                ELITE<span className="text-primary">PERFORMANCE</span>
-              </span>
+              <img src="/logo.png" alt="FavFit Logo" className="h-16 md:h-20 w-auto object-contain" />
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed max-w-xs">
               Built on strength, refined by science. The premium destination for elite fitness and recovery.
@@ -41,7 +38,7 @@ export function Footer() {
           <div>
             <h4 className="font-heading font-bold text-text-primary mb-4">Connect</h4>
             <div className="text-text-secondary text-sm flex flex-col gap-2">
-              <a href="tel:+910000000000" className="hover:text-primary transition-colors">+91 00000 00000</a>
+              <a href="tel:+919220393004" className="hover:text-primary transition-colors">+91 92203 93004</a>
               <a href="#" className="hover:text-primary transition-colors">WhatsApp</a>
               <a href="#" className="hover:text-primary transition-colors">@eliteperformance</a>
             </div>

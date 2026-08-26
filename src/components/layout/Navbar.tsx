@@ -37,16 +37,17 @@ export function Navbar() {
 
         {/* Left: Brand / Logo */}
         <div className="flex-1 flex justify-start">
-          <Link href="/" className="flex items-center gap-3 group">
-            <Mountain className="h-8 w-8 text-primary stroke-[1.5]" />
-            <div className="flex flex-col">
-              <span className="font-heading font-black text-xl md:text-2xl tracking-tighter text-white leading-none">
-                {navbar.logo.line1}
-              </span>
-              <span className="text-[9px] md:text-[10px] font-bold tracking-widest text-zinc-400 leading-tight mt-0.5 uppercase">
-                {navbar.logo.line2}
-              </span>
-            </div>
+          <Link 
+            href="/#home" 
+            className="flex items-center gap-3 group"
+            onClick={(e) => {
+              if (window.location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
+            <img src="/logo.png" alt="FavFit Logo" className="h-10 md:h-12 w-auto object-contain" />
           </Link>
         </div>
 
@@ -56,6 +57,12 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                if ((link.href === "/" || link.href === "/#home") && window.location.pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
               className="group text-[11px] font-bold tracking-widest uppercase transition-colors duration-300 flex items-center h-full text-zinc-400 hover:text-primary"
             >
               <span className="relative">
@@ -75,7 +82,7 @@ export function Navbar() {
           <Link
             href="/assessment"
             target="_blank"
-            className="hidden lg:flex group items-center justify-center h-[42px] px-6 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black text-[12px] font-bold tracking-wide uppercase transition-all duration-300 hover:bg-white hover:shadow-[0_0_20px_rgba(163,230,53,0.4)] rounded-md"
+            className="hidden lg:flex group items-center justify-center h-[42px] px-6 bg-transparent border border-primary text-primary hover:bg-primary hover:text-black text-[12px] font-bold tracking-wide uppercase transition-all duration-300 hover:bg-white hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.4)] rounded-md"
           >
             {navbar.cta}
             <ArrowRight className="ml-2 h-4 w-4 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
@@ -97,13 +104,19 @@ export function Navbar() {
         <div className="lg:hidden absolute top-[72px] left-0 w-full bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl overflow-hidden">
           <div className="px-6 py-8 flex flex-col gap-6">
             {navbar.links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`text-sm font-bold tracking-widest uppercase transition-colors ${activeLink === link.name ? "text-primary" : "text-white"
-                  }`}
-              >
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => {
+                    setIsOpen(false);
+                    if ((link.href === "/" || link.href === "/#home") && window.location.pathname === "/") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
+                  className={`text-sm font-bold tracking-widest uppercase transition-colors ${activeLink === link.name ? "text-primary" : "text-white"
+                    }`}
+                >
                 {link.name}
               </Link>
             ))}

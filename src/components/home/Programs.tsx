@@ -70,7 +70,7 @@ export function Programs() {
   };
 
   return (
-    <section ref={sectionRef} id="programs" className="bg-[#050505] relative overflow-hidden py-24">
+    <section ref={sectionRef} id="programs" className="bg-[#050505] relative overflow-hidden py-12 md:py-16">
       <div className="container mx-auto px-4 md:px-8 max-w-[1400px]">
         
         {/* Header Block */}
@@ -82,7 +82,7 @@ export function Programs() {
         >
           <div className="flex items-center gap-4 mb-3">
             <div className="w-8 h-[1px] bg-primary/40"></div>
-            <span className="text-primary font-bold text-[10px] tracking-[0.3em] uppercase drop-shadow-[0_0_10px_rgba(204,255,0,0.5)]">
+            <span className="text-primary font-bold text-[10px] tracking-[0.3em] uppercase drop-shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]">
               {programs.badge}
             </span>
             <div className="w-8 h-[1px] bg-primary/40"></div>
@@ -90,7 +90,7 @@ export function Programs() {
           
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-black leading-tight uppercase tracking-tighter mb-3">
             <span className="bg-gradient-to-br from-white to-zinc-500 bg-clip-text text-transparent">{programs.headingLine1}</span> <br/>
-            <span className="bg-gradient-to-br from-white to-zinc-500 bg-clip-text text-transparent">{programs.headingLine2}</span> <span className="text-primary drop-shadow-[0_0_15px_rgba(204,255,0,0.3)]">{programs.headingLine3}</span>
+            <span className="bg-gradient-to-br from-white to-zinc-500 bg-clip-text text-transparent">{programs.headingLine2}</span> <span className="text-primary drop-shadow-[0_0_15px_rgba(var(--primary-rgb),0.3)]">{programs.headingLine3}</span>
           </h2>
           
           <p className="text-zinc-400 text-[13px] md:text-sm font-medium max-w-xl mx-auto leading-relaxed">
@@ -116,7 +116,7 @@ export function Programs() {
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a]"></div>
                 
                 {/* Neon Icon Circle */}
-                <div className="absolute top-6 left-6 w-12 h-12 rounded-full border-2 border-primary text-primary flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:bg-primary group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(204,255,0,0.2)]">
+                <div className="absolute top-6 left-6 w-12 h-12 rounded-full border-2 border-primary text-primary flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:bg-primary group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(var(--primary-rgb),0.2)]">
                   {getIcon(card.iconType)}
                 </div>
               </div>
@@ -147,7 +147,7 @@ export function Programs() {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0a0a0a]/50 to-[#0a0a0a] hidden lg:block"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0a]/50 to-[#0a0a0a] block lg:hidden"></div>
             
-            <div className="absolute top-6 left-6 w-12 h-12 rounded-full border-2 border-primary text-primary flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:bg-primary group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(204,255,0,0.2)]">
+            <div className="absolute top-6 left-6 w-12 h-12 rounded-full border-2 border-primary text-primary flex items-center justify-center bg-black/40 backdrop-blur-sm group-hover:bg-primary group-hover:text-black transition-colors duration-500 shadow-[0_0_15px_rgba(var(--primary-rgb),0.2)]">
               <AwardIcon />
             </div>
           </div>
