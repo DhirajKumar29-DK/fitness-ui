@@ -15,7 +15,7 @@ export function LayoutWrapper({ children }: { children: React.ReactNode }) {
       href="https://wa.me/919220393004" 
       target="_blank" 
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 w-14 h-14 bg-zinc-900 border border-white/10 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 hover:border-[#25D366] hover:text-[#25D366] hover:shadow-[0_4px_20px_rgba(var(--primary-rgb),0.3)] transition-all duration-300 z-[100] cursor-pointer"
+      className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:scale-110 hover:bg-[#128C7E] transition-all duration-300 z-[100] cursor-pointer"
       aria-label="Chat on WhatsApp"
     >
       <WhatsAppIcon />
