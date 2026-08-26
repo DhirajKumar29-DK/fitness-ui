@@ -68,7 +68,7 @@ export const homeData = {
   ],
   stats: [
     { value: "500+", label: "Transformations", icon: "User" },
-    { value: "10+", label: "Years Experience", icon: "Trophy" },
+    { value: "8+", label: "Years Experience", icon: "Trophy" },
     { value: "25+", label: "Expert Coaches", icon: "Activity" },
     { value: "4.9/5", label: "Client Rating", icon: "Star" },
   ],
@@ -98,44 +98,58 @@ export const homeData = {
     items: [
       {
         id: 1,
-        title: "STRENGTH TRAINING",
+        title: "STRENGTH & CONDITIONING",
         description: "Build muscle, increase strength and improve overall performance.",
         image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop",
         icon: "Dumbbell"
       },
       {
         id: 2,
-        title: "PERFORMANCE TRAINING",
-        description: "Improve speed, agility, power and athletic performance.",
-        image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop",
+        title: "PERSONAL TRAINING",
+        description: "1-on-1 coaching tailored to your goals with complete attention and support.",
+        image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=800&auto=format&fit=crop",
         icon: "PersonStanding"
       },
       {
         id: 3,
-        title: "CONDITIONING",
-        description: "Enhance endurance, stamina and overall fitness levels.",
-        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
+        title: "HYROX & HYBRID TRAINING",
+        description: "Enhance endurance, stamina and overall fitness levels for race day.",
+        image: "https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=800&auto=format&fit=crop",
         icon: "HeartPulse"
       },
       {
         id: 4,
-        title: "NUTRITION COACHING",
+        title: "CROSSFIT",
+        description: "High-intensity functional movements for ultimate fitness.",
+        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop",
+        icon: "Activity"
+      },
+      {
+        id: 5,
+        title: "BOXING",
+        description: "Improve cardiovascular health, coordination, and strength.",
+        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop",
+        icon: "HeartPulse"
+      },
+      {
+        id: 6,
+        title: "FUNCTIONAL & PERFORMANCE",
+        description: "Train your body for real-world activities and peak performance.",
+        image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop",
+        icon: "Activity"
+      },
+      {
+        id: 7,
+        title: "NUTRITIONAL GUIDANCE",
         description: "Personalized nutrition plans to fuel your performance.",
         image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop",
         icon: "Utensils"
       },
       {
-        id: 5,
-        title: "MOBILITY & RECOVERY",
-        description: "Improve mobility, reduce injury risk and recover faster.",
+        id: 8,
+        title: "FULL BODY COMPOSITION",
+        description: "In-depth analysis to track your progress and adjust programming.",
         image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=800&auto=format&fit=crop",
-        icon: "Activity"
-      },
-      {
-        id: 6,
-        title: "ONLINE COACHING",
-        description: "Custom training programs and support, wherever you are.",
-        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop",
         icon: "MonitorSmartphone"
       }
     ],
@@ -314,7 +328,7 @@ export const homeData = {
     ],
     footerStats: [
       { value: "500+", label: "TRANSFORMED CLIENTS", icon: "users" },
-      { value: "10+ YEARS", label: "COACHING EXPERIENCE", icon: "shield" },
+      { value: "8+ YEARS", label: "COACHING EXPERIENCE", icon: "shield" },
       { value: "100%", label: "PERSONALIZED APPROACH", icon: "dumbbell" },
       { value: "EVIDENCE BASED", label: "PROVEN METHODS", icon: "checkCircle" },
       { value: "RESULTS", label: "THAT LAST", icon: "heart" }
@@ -366,7 +380,7 @@ export const homeData = {
     },
     footerStats: [
       { value: "500+", label: "TRANSFORMED CLIENTS", icon: "users" },
-      { value: "10+ YEARS", label: "COACHING EXPERIENCE", icon: "shield" },
+      { value: "8+ YEARS", label: "COACHING EXPERIENCE", icon: "shield" },
       { value: "100%", label: "PERSONALIZED APPROACH", icon: "dumbbell" },
       { value: "EVIDENCE BASED", label: "PROVEN METHODS", icon: "checkCircle" },
       { value: "RESULTS", label: "THAT LAST", icon: "heart" }
@@ -416,8 +430,8 @@ export const homeData = {
     info: [
       { id: 1, type: "phone", title: "CALL US", details: "+91 92203 93004" },
       { id: 2, type: "email", title: "EMAIL US", details: "info@fabfit.com" },
-      { id: 3, type: "address", title: "VISIT US", details: "Fab Fit Performance,\n123 Fitness Street,\nBhubaneswar, Odisha 751001" },
-      { id: 4, type: "hours", title: "OPENING HOURS", details: "Mon - Sat: 5:00 AM - 10:00 PM\nSunday: 7:00 AM - 1:00 PM" }
+      { id: 3, type: "address", title: "VISIT US", details: "Fab Fit Performance,\n62C, 6th Floor, Supermart 1,\nDLF Phase-4, Gurgaon" },
+      { id: 4, type: "hours", title: "OPENING HOURS", details: "Mon - Sun: 6:00 AM - 11:00 PM" }
     ],
     socials: [
       { id: 1, name: "Instagram", url: "#" },
@@ -429,8 +443,8 @@ export const homeData = {
     formHeaderHighlight: "MESSAGE",
     mapAddress: {
       title: "Fab Fit Performance",
-      addressLine1: "123 Fitness Street,",
-      addressLine2: "Bhubaneswar, Odisha 751001"
+      addressLine1: "62C, 6th Floor, Supermart 1,",
+      addressLine2: "DLF Phase-4, Gurgaon"
     }
   },
   programs: {
@@ -442,35 +456,35 @@ export const homeData = {
     mainCards: [
       {
         id: 1,
-        titleLine1: "BODY",
-        titleLine2: "TRANSFORMATION",
-        description: "Lose fat, build lean muscle and transform your physique with personalized training & nutrition.",
+        titleLine1: "TRAIN. BUILD.",
+        titleLine2: "PERFORM.",
+        description: "International Certified Female & Male Trainers for Strength, Conditioning & CrossFit.",
         image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=600&auto=format&fit=crop",
-        iconType: "body"
-      },
-      {
-        id: 2,
-        titleLine1: "STRENGTH &",
-        titleLine2: "PERFORMANCE",
-        description: "Improve strength, power, speed and endurance to perform at your highest level.",
-        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
         iconType: "dumbbell"
       },
       {
+        id: 2,
+        titleLine1: "THE RECOVERY",
+        titleLine2: "ZONE",
+        description: "Infrared Sauna, Compression Boots, Salt Therapy & Massage Therapy. Recover, Recharge, Repeat.",
+        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop",
+        iconType: "body"
+      },
+      {
         id: 3,
-        titleLine1: "PERSONAL",
-        titleLine2: "TRAINING",
-        description: "1-on-1 coaching tailored to your goals with complete attention, tracking and support.",
+        titleLine1: "REHAB &",
+        titleLine2: "RESTORE",
+        description: "Injury Rehab, Corrective Training, Physiotherapy Assistance & Posture Correction.",
         image: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=600&auto=format&fit=crop",
         iconType: "user"
       },
       {
         id: 4,
-        titleLine1: "ONLINE",
-        titleLine2: "COACHING",
-        description: "Train from anywhere with customized workouts, diet plans and regular progress tracking.",
+        titleLine1: "COMPLETE",
+        titleLine2: "FITNESS",
+        description: "One Space. Complete Fitness. ASSESS → TRAIN → RECOVER → PERFORM.",
         image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop",
-        iconType: "laptop"
+        iconType: "target"
       }
     ],
     stagePrep: {

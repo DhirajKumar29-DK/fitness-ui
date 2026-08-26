@@ -290,7 +290,7 @@ export function Contact() {
             {/* Small Map Box */}
             <div className="relative w-full h-[400px] bg-zinc-900 border border-white/10 rounded-3xl overflow-hidden group shadow-2xl">
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119614.97549887752!2d85.7335198!3d20.301031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1714123456789!5m2!1sen!2sin"
+                src="https://maps.google.com/maps?q=Supermart+1,+DLF+Phase-4,+Gurgaon&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }}
